@@ -1,6 +1,6 @@
 package reporter
 
-type Reporter interface {
-	InfoFormat(fmt string, args ...interface{}) error
-	ErrorFormat(fmt string, args ...interface{}) error
+type IReporter interface {
+	InfoFormat(fmt string, args ...interface{})
+	ErrorFormat(fmt string, args ...interface{})
 }

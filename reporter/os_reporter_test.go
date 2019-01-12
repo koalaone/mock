@@ -4,30 +4,14 @@ import "testing"
 
 func TestOSReporter_ErrorFormat(t *testing.T) {
 	rp := NewOSReporter()
-	err := rp.ErrorFormat("report error value:%v", "test")
-	if err != nil {
-		t.Errorf("ErrorFormat error:%v", err.Error())
-		return
-	}
+	rp.ErrorFormat("report error value:%v", "test")
 
-	err = rp.ErrorFormat("report error value:%v", "test123")
-	if err != nil {
-		t.Errorf("ErrorFormat error:%v", err.Error())
-		return
-	}
+	rp.ErrorFormat("report error value:%v", "test123")
 }
 
 func TestOSReporter_InfoFormat(t *testing.T) {
 	rp := NewOSReporter()
-	err := rp.InfoFormat("report info value:%v", "test")
-	if err != nil {
-		t.Errorf("ErrorFormat error:%v", err.Error())
-		return
-	}
+	rp.InfoFormat("report info value:%v", "test")
 
-	err = rp.InfoFormat("report info value:%v", "test123")
-	if err != nil {
-		t.Errorf("ErrorFormat error:%v", err.Error())
-		return
-	}
+	rp.InfoFormat("report info value:%v", "test123")
 }
