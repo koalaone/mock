@@ -19,24 +19,25 @@
 
 package interfaces
 
-import "net/http"
-
-type StatusPart int
+import (
+	"net/http"
+)
 
 const (
-	Status1xx StatusPart = 100
-	Status2xx StatusPart = 200
-	Status3xx StatusPart = 300
-	Status4xx StatusPart = 400
-	Status5xx StatusPart = 500
+	Status1xx = 100
+	Status2xx = 200
+	Status3xx = 300
+	Status4xx = 400
+	Status5xx = 500
+	Status6xx = 600
 )
 
 type IResponse interface {
 	IReport
 	GetRaw() *http.Response
 	GetUseTime() IInteger
-	GetStatus(value int) IResponse
-	GetStatusPart(value StatusPart)
+	GetStatus() IInteger
+	GetStatusPart() IInteger
 	GetHeaders() IObject
 	GetHeader(key string) IString
 	GetCookies() IArray
@@ -44,10 +45,10 @@ type IResponse interface {
 	GetBody() IString
 	GetBodyText() IString
 	GetBodyForm() IObject
-	GetBodyJSON() map[string]interface{}
-	GetBodyJSONP(callback string) *IValue
+	GetBodyJSON() IObject
+	GetBodyJSONP(callback string) IValue
 	EqualNoContent() IResponse
 	EqualContentType(contentType, characterSet string) IResponse
 	EqualContentEncoding(contentEncoding string) IResponse
-	EqualTransferEncoding(transferEncoding string) IResponse
+	EqualTransferEncoding(transferEncodings ...string) IResponse
 }

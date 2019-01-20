@@ -17,7 +17,7 @@
  *
  */
 
-package http
+package httpde_base
 
 import (
 	"net/http"

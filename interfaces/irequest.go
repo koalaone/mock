@@ -27,12 +27,7 @@ import (
 type IRequest interface {
 	IReport
 	SetClient(client IClient) IRequest
-	SetDomain(value string) IRequest
 	SetHandler(handler http.Handler) IRequest
-	SetMethod(method string) IRequest
-	SetPath(path string) IRequest
-	SetPathParam(key string, value interface{}) IRequest
-	SetPathParamObject(object interface{}) IRequest
 	SetPathQuery(key string, value interface{}) IRequest
 	SetPathQueryObject(object interface{}) IRequest
 	SetPathQueryString(query string) IRequest
@@ -47,7 +42,7 @@ type IRequest interface {
 	SetBodyBytes(body []byte) IRequest
 	SetBodyText(body string) IRequest
 	SetBodyJson(body interface{}) IRequest
-	SetBodyForm(body interface{}) IRequest
+	SetBodyForm(body map[string]interface{}) IRequest
 	SetBodyFormField(key string, value interface{}) IRequest
 	SetBodyFile(key, filename string, reader io.Reader) IRequest
 	SetBodyFileBytes(key, filename string, data []byte) IRequest

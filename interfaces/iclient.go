@@ -24,4 +24,5 @@ import "net/http"
 type IClient interface {
 	IReport
 	Do(req *http.Request) (*http.Response, error)
+	Client() *http.Client
 }
